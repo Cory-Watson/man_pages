@@ -1,0 +1,11 @@
+
+  Buddy-ng 1.2  - (C) 2007,2008 Andrea Bittau
+  https://www.aircrack-ng.org
+
+  Usage: buddy-ng <options>
+
+  Options:
+
+       -h        : This help screen
+       -p        : Don't drop privileges
+

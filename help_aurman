@@ -1,0 +1,62 @@
+Usage
+
+    aurman <operation> [options] [targets]
+    see also https://www.archlinux.org/pacman/pacman.8.html
+
+Description
+
+    aurman is meant as a pacman wrapper. All pacman operations are supported,
+    but calling aurman with an operation besides --sync or -S will just pass the arguments to pacman.
+
+the following native pacman options for --sync or -S will be forwarded to pacman
+
+    -r, --root                              :  Specify an alternative database location (a typical default is /var/lib/pacman)
+    -v, --verbose                           :  Output paths such as as the Root, Conf File, DB Path, Cache Dirs, etc.
+    --cachedir                    :  Specify an alternative package cache location (a typical default is /var/cache/pacman/pkg)
+    --color                       :  Specify when to enable coloring
+    --debug                       :  Display debug messages
+    --gpgdir                      :  Specify a directory of files used by GnuPG to verify package signatures (default is /etc/pacman.d/gnupg)
+    --hookdir                     :  Specify a alternative directory containing hook files (default is /etc/pacman.d/hooks)
+    --logfile                     :  Specify an alternate log file
+    --noconfirm                   :  Bypass any and all 'Are you sure?' messages
+    --confirm                     :  Cancels the effects of a previous --noconfirm
+    --force                       :  Bypass file conflict checks and overwrite conflicting files
+    --asdeps                      :  Install packages non-explicitly
+    --asexplicit                  :  Install packages explicitly
+    --needed                      :  Do not reinstall the targets that are already up-to-date
+    --ignore                      :  Directs pacman to ignore upgrades of package even if there is one available
+    --ignoregroup                 :  Directs pacman to ignore upgrades of all packages in group, even if there is one available.
+    -s, --search                            :  This will search each package in the sync databases for names or descriptions
+    -u, --sysupgrade                        :  Upgrades all packages that are out-of-date
+    -y, --refresh                           :  Download a fresh copy of the master package database from the server
+    -c, --clean                             :  Remove packages that are no longer installed from the cache
+
+the following native pacman options for --sync or -S will also be used by aurman for aur packages
+
+    --color                       :  Specify when to enable coloring
+    --noconfirm                   :  Bypass any and all 'Are you sure?' messages
+    --needed                      :  Do not reinstall the targets that are already up-to-date
+    --ignore                      :  Directs aurman to ignore upgrades of package even if there is one available
+    --ignoregroup                 :  Directs aurman to ignore upgrades of all packages in group, even if there is one available.
+    -s, --search                            :  This will search each package in the sync databases and aur for names or descriptions
+    -u, --sysupgrade                        :  Upgrades all packages that are out-of-date
+    -c, --clean                             :  Remove packages that are no longer installed from the cache
+
+aurman exclusive options for --sync or -S
+
+    --noedit                      :  Will not show changes of PKGBUILDs, .install and other relevant files
+    --always_edit                 :  Lets the user edit the files of packages, even if there are no new changes
+    --show_changes                :  Will show changes of PKGBUILDs, .install and other relevant files without asking
+    --devel                       :  Will fetch current development packages versions
+    --deep_search                 :  Dependency solving will ignore currently fulfilled dependencies of your system
+    --pgp_fetch                   :  Fetches needed pgp keys without asking the user
+    --keyserver                   :  You may specify a keyserver to fetch the pgp keys from
+    --aur                         :  Do things only for aur
+    --repo                        :  Do things only for regular repos
+    --domain                      :  Change the base url for aur requests (https://aur.archlinux.org is the default)
+    --solution_way                :  Print the way of installing/removing packages
+    --holdpkg                     :  Specify packages which must not be removed - multiple packages are space separated
+    --holdpkg_conf                :  Append packages from the pacman.conf to --holdpkg
+    --do_everything               :  -u will be handled by aurman for repo packages, too
+    --optimistic_versioning       :  In case of an unknown version of a provider for a versioned dependency, assume that the dependency is fulfilled
+    --rebuild                     :  Always rebuild packages before installing them

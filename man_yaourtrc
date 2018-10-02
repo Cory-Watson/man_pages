@@ -1,0 +1,194 @@
+YAOURTRC(5)                                          Yaourt Manual                                         YAOURTRC(5)
+
+NAME
+       yaourtrc - yaourt configuration file
+
+SYNOPSIS
+       /etc/yaourtrc
+
+       $XDG_CONFIG_HOME/yaourt/yaourtrc
+
+       $HOME/.yaourtrc
+
+DESCRIPTION
+       yaourt(8) obtains configuration data from the following sources in the following order:
+
+        1. command-line options
+
+        2. environment variables
+
+        3. user’s configuration file ($XDG_CONFIG_HOME/yaourt/yaourtrc takes precedence)
+
+        4. system-wide configuration file (/etc/yaourtrc)
+
+GENERAL OPTIONS
+       REPOS=()
+           List of repositories where PKGBUILD can be retrieved by rsync. (see /etc/abs.conf)
+
+       AUTOSAVEBACKUPFILE=0
+           If set to 1, yaourt will search for config files to back up (.pacnew files) after each install. All backed
+           up files are stored in /var/lib/yaourt/. These files will be used later with yaourt -C to automerge current
+           config files with new config files (.pacnew). This option requires root password or sudo configured to
+           allow running /usr/bin/pacdiffviewer without password.
+
+       DEVELSRCDIR=""
+           Specify directory where to keep sources for devel packages.
+
+       DEVEL=0
+           If set to 1, always search for new version of development (CVS/SVN/Git/Mercurial/other VCS) packages when
+           upgrading (yaourt -Su).
+
+       VISUAL="$VISUAL"
+           Define the editor to use (if the environment variable $VISUAL is not set) for PKGBUILD editing. Editor
+           should not fork, for gvim: VISUAL="gvim --nofork". Preferred over EDITOR.
+
+       EDITOR="$EDITOR"
+           Define the editor to use (if the environment variables $VISUAL and $EDITOR and the yaourtrc option $VISUAL
+           are not set) for PKGBUILD editing. Editor should not fork, for gvim: EDITOR="gvim --nofork". Fallback
+           option for VISUAL.
+
+       FORCE=0
+           If set to 1, always bypass file conflict checks and overwrite conflicting files.
+
+       TMPDIR="/tmp"
+           Specify the folder to save temporary files (default is /tmp).
+
+       NO_TESTDB=0
+           Set to 1 to bypass the local database test.
+
+SUDO OPTIONS
+       SUDONOVERIF=0
+           If set to 1, yaourt doesn’t do sudo checks. (For users with timestamp_timeout=0 in sudoers)
+
+       SUDOREDIRECT=1
+           If set to 0, yaourt doesn’t redirect sudo standard output. (For users with fingerprint authentication)
+
+AUR OPTIONS
+       AURCOMMENT=5
+           Show X last comments for packages built from AUR Unsupported. 0 to disable comments display, default to 5.
+
+       AURDEVELONLY=0
+           If set to 1, search only for new version of development (CVS/SVN/Git/Mercurial/other VCS) packages when
+           upgrading (yaourt -Su --devel).
+
+       AURSEARCH=1
+           If set to 0, don’t search for packages on AUR Unsupported.
+
+       AURSHOWDIFF=0
+           If set to 1, show a diff of the PKGBUILD for packages updated from AUR (AURUSEGIT needs to be set to 1 as
+           well).
+
+       AURUPGRADE=0
+           If set to 1, always search for new version of packages installed from AUR Unsupported when upgrading
+           (yaourt -Su).
+
+       AURURL="https://aur.archlinux.org"
+           Specify a custom AUR url.
+
+       AURVOTE=1
+           If set to 0, don’t check the vote status for inclusion/keeping in [community], and it is unable to vote.
+
+       AURUSEGIT=0
+           If set to 1, clone the AUR git repository instead of using snapshot tarballs.
+
+BUILD OPTIONS
+       EXPORT=0
+           Export built package to $EXPORTDIR or, if not defined to $PKGDEST (see makepkg.conf(5)).  EXPORT=2 exports
+           all built packages to pacman cache directory (see pacman.conf(5)).
+
+       EXPORTSRC=0
+           Export sources to $EXPORTDIR or, if not defined to $SRCPKGDEST or $PKGDEST (see makepkg.conf(5)).
+
+       EXPORTDIR=""
+           Specify the folder where yaourt exports built packages + sources.
+
+PROMPT OPTIONS
+       NOCONFIRM=0
+           If set to 1, always use the default choice without confirmation, unless overwritten by --confirm.
+
+       UP_NOCONFIRM=0
+           If set to 1, do not prompt for AUR or build upgrades.
+
+       BUILD_NOCONFIRM=0
+           If set to 1, do not prompt while building.
+
+       EDITFILES=1
+           If set to 0, don’t propose to edit files (from AUR or from ABS), unless overwritten by --edit.
+
+       NOENTER=1
+           If set to 0, user needs to press Enter for each "yes/no" question.
+
+OUTPUT OPTIONS
+       USECOLOR=1
+           0 : disable colors
+
+           1 : enable colors (disabled if output is not a tty)
+
+           2 : force colored output
+
+       USEPAGER=0
+           1 : enable pager (use $PAGER variable)
+
+       DETAILUPGRADE=1
+           0 : no detailed ouput and no update classification
+
+           1 : no detailed ouput but updates classified
+
+           2 : show packages not found on aur / version mismatch / up to date / and those marked as out of date
+
+           4 : same as 2 except for up to date packages
+
+       SHOWORPHANS=1
+           If set to 0, search for orphans.
+
+       TERMINALTITLE=1
+           If set to 0, don’t show the current yaourt’s action in terminal title. By default, yaourt show messages
+           like "Installing xxx from AUR".
+
+ENVIRONMENT VARIABLES
+       Environment variables take precedence over any options in yaourtrc files.
+
+       VISUAL
+           Define the editor to use (if the environment variable $VISUAL is not set) for PKGBUILD editing. Editor
+           should not fork, for gvim: VISUAL="gvim --nofork". Preferred over EDITOR.
+
+       EDITOR
+           Define the editor to use (if the environment variable $VISUAL and the yaourtrc option $VISUAL are not set)
+           for PKGBUILD editing. Editor should not fork, for gvim: EDITOR="gvim --nofork". Fallback option for VISUAL.
+
+COMMAND OPTIONS
+       PACMAN="pacman"
+           Specify the pacman binary to use with yaourt
+
+       MAKEPKG="makepkg"
+           Specify the makepkg binary to use with yaourt
+
+       DIFFEDITCMD="vimdiff"
+           Define the diff editor to use ($DIFFEDITCMD file1 file2).
+
+SEE ALSO
+       yaourt(8)
+
+       See the yaourt website at http://archlinux.fr/yaourt-en/ for more info.
+
+BUGS
+       https://github.com/archlinuxfr/yaourt
+
+AUTHORS
+       Original author:
+
+       - Julien MISCHKOWITZ <wain@archlinux.fr>
+
+       Current maintainers:
+
+       - larchunix <larchunix+yaourt@gmail.com>
+
+       - Igor <f2404@yandex.ru>
+
+       - Skunnyk <skunnyk@archlinux.fr>
+
+       Past maintainers:
+
+       - Tuxce <tuxce.net@gmail.com>
+
+Yaourt 1.9                                            2017-07-19                                           YAOURTRC(5)

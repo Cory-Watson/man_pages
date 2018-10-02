@@ -1,0 +1,31 @@
+asp v2 [OPTIONS...] {COMMAND} ...
+
+Manage build sources for Arch packages.
+
+Options:
+  -a           ARCH        Specify an architecture other than the host's
+  -f                       Allow files to be overwritten
+  -h                       Show this help
+  -V                       Show package version
+
+Package Commands:
+  checkout           NAME...     Create a mutable git repository for packages
+  difflog            NAME        Show revision history with diffs
+  export             NAME...     Export packages
+  list-all                       List all known packages
+  list-arches        NAME...     List architectures for packages
+  list-local                     List tracked packages
+  list-repos         NAME...     List repos for packages
+  log                NAME        Show revision history
+  ls-files           NAME        List files for package
+  shortlog           NAME        Show revision history in short form
+  show               NAME [FILE] Show the PKGBUILD or other FILE
+  untrack            NAME...     Remove a package from the local repository
+  update             [NAME...]   Update packages (update all tracked if none specified)
+
+Meta Commands:
+  disk-usage                     Show amount of disk used by locally tracked packages
+  gc                             Cleanup and optimize the local repository
+  help                           Show this help
+  set-git-protocol   PROTO       Change git protocol (one of: git, http, https)
+

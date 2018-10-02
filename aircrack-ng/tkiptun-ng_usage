@@ -1,0 +1,41 @@
+
+  Tkiptun-ng 1.2  - (C) 2008-2015 Thomas d'Otreppe
+  https://www.aircrack-ng.org
+
+  usage: tkiptun-ng <options> <replay interface>
+
+  Filter options:
+
+      -d dmac   : MAC address, Destination
+      -s smac   : MAC address, Source
+      -m len    : minimum packet length (default: 80) 
+      -n len    : maximum packet length (default: 80)
+      -t tods   : frame control, To      DS bit
+      -f fromds : frame control, From    DS bit
+      -D        : disable AP detection
+      -Z        : select packets manually
+
+  Replay options:
+
+      -x nbpps  : number of packets per second
+      -a bssid  : set Access Point MAC address
+      -c dmac   : set Destination  MAC address
+      -h smac   : set Source       MAC address
+      -e essid  : set target AP SSID
+      -M sec    : MIC error timeout in seconds [60]
+
+  Debug options:
+
+      -K prga   : keystream for continuation
+      -y file   : keystream-file for continuation
+      -j        : inject FromDS packets
+      -P pmk    : pmk for verification/vuln testing
+      -p psk    : psk to calculate pmk with essid
+
+  source options:
+
+      -i iface  : capture packets from this interface
+      -r file   : extract packets from this pcap file
+
+      --help    : Displays this usage screen
+

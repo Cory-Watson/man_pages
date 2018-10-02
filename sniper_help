@@ -1,0 +1,62 @@
+[91m                ____               [0m
+[91m    _________  /  _/___  ___  _____[0m
+[91m   / ___/ __ \ / // __ \/ _ \/ ___/[0m
+[91m  (__  ) / / // // /_/ /  __/ /    [0m
+[91m /____/_/ /_/___/ .___/\___/_/     [0m
+[91m               /_/                 [0m
+
+[93m + -- --=[http://crowdshield.com[0m
+[93m + -- --=[sniper v5.1 by 1N3[0m
+
+ [*] NORMAL MODE
+ sniper -t|--target <TARGET>
+
+ [*] NORMAL MODE + OSINT + RECON
+ sniper -t|--target <TARGET> -o|--osint -re|--recon
+
+ [*] STEALTH MODE + OSINT + RECON
+ sniper -t|--target <TARGET> -m|--mode stealth -o|--osint -re|--recon
+
+ [*] DISCOVER MODE
+ sniper -t|--target <CIDR> -m|--mode discover -w|--workspace <WORSPACE_ALIAS>
+
+ [*] SCAN ONLY SPECIFIC PORT
+ sniper -t|--target <TARGET> -m port -p|--port <portnum>
+
+ [*] FULLPORTONLY SCAN MODE
+ sniper -t|--target <TARGET> -fp|--fullportonly
+
+ [*] PORT SCAN MODE
+ sniper -t|--target <TARGET> -m|--mode port -p|--port <PORT_NUM>
+
+ [*] WEB MODE - PORT 80 + 443 ONLY!
+ sniper -t|--target <TARGET> -m|--mode web
+
+ [*] HTTP WEB PORT MODE
+ sniper -t|--target <TARGET> -m|--mode webporthttp -p|--port <port>
+
+ [*] HTTPS WEB PORT MODE
+ sniper -t|--target <TARGET> -m|--mode webporthttps -p|--port <port>
+
+ [*] ENABLE BRUTEFORCE
+ sniper -t|--target <TARGET> -b|--bruteforce
+
+ [*] AIRSTRIKE MODE
+ sniper -f|--file /full/path/to/targets.txt -m|--mode airstrike
+
+ [*] NUKE MODE WITH TARGET LIST, BRUTEFORCE ENABLED, FULLPORTSCAN ENABLED, OSINT ENABLED, RECON ENABLED, WORKSPACE & LOOT ENABLED
+ sniper -f--file /full/path/to/targets.txt -m|--mode nuke -w|--workspace <WORKSPACE_ALIAS>
+
+ [*] LIST WORKSPACES
+ sniper --list
+
+ [*] LOOT REIMPORT FUNCTION
+ sniper -w <WORKSPACE_ALIAS> --reimport
+
+ [*] LOOT REIMPORT FUNCTION
+ sniper -w <WORKSPACE_ALIAS> --reload
+
+ [*] UPDATE SNIPER
+ sniper -u|--update
+
+

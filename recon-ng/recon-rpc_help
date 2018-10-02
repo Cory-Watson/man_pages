@@ -1,0 +1,7 @@
+usage: recon-rpc [-h] [-t [jsonrpc|xmlrpc]] [-a address] [-p port]
+
+optional arguments:
+  -h, --help           show this help message and exit
+  -t [jsonrpc|xmlrpc]  Set RPC server type
+  -a address           Set RPC server bind address
+  -p port              Set RPC server port

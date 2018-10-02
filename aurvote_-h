@@ -1,0 +1,12 @@
+aurvote 1.9
+
+usage: /usr/bin/aurvote <option> <pkgname1> <pkgname2> ...
+
+ --version, -V       shows version
+ --help,    -h       shows this help
+ --check,   -c       check for voted packages
+ --vote,    -v       vote for packages
+ --unvote,  -u       unvote packages
+
+ --configure         create /home/cory/.config/aurvote
+

@@ -1,0 +1,20 @@
+
+  Wesside-ng 1.2  - (C) 2007, 2008, 2009 Andrea Bittau
+  https://www.aircrack-ng.org
+
+  Usage: wesside-ng <options>
+
+  Options:
+
+       -h              : This help screen
+       -i      <iface> : Interface to use (mandatory)
+       -m      <my ip> : My IP address
+       -n     <net ip> : Network IP address
+       -a      <mymac> : Source MAC Address
+       -c              : Do not crack the key
+       -p   <min prga> : Minimum bytes of PRGA to gather
+       -v <victim mac> : Victim BSSID
+       -t  <threshold> : Cracking threshold
+       -f   <max chan> : Highest scanned chan (default: 11)
+       -k      <txnum> : Ignore acks and tx txnum times
+

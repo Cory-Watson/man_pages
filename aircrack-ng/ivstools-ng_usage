@@ -1,0 +1,8 @@
+
+  ivsTools 1.2  - (C) 2006-2018 Thomas d'Otreppe
+  https://www.aircrack-ng.org
+
+   usage: ivstools --convert <pcap file> <ivs output file>
+        Extract ivs from a pcap file
+       ivstools --merge <ivs file 1> <ivs file 2> .. <output file>
+        Merge ivs files

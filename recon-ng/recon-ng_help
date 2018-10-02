@@ -1,0 +1,12 @@
+usage: recon-ng [-h] [-v] [-w workspace] [-r filename] [--no-check]
+                [--no-analytics]
+
+recon-ng - Tim Tomes (@LaNMaSteR53) tjt1980[at]gmail.com
+
+optional arguments:
+  -h, --help      show this help message and exit
+  -v, --version   show program's version number and exit
+  -w workspace    load/create a workspace
+  -r filename     load commands from a resource file
+  --no-check      disable version check
+  --no-analytics  disable analytics reporting

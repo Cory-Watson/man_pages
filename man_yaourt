@@ -1,0 +1,217 @@
+YAOURT(8)                                            Yaourt Manual                                           YAOURT(8)
+
+NAME
+       yaourt - more than a frontend to pacman
+
+SYNOPSIS
+       yaourt <operation> [options] [packages]
+
+       yaourt (search pattern|package file)
+
+DESCRIPTION
+       Yaourt is a pacman frontend with a lot of features.
+
+       AUR/ABS support, colorized output, interactive search/install, save/restore Alpm database, orphans detection,
+       manage .pac* files, ...
+
+OPERATIONS
+       Since the majority of those options are the same as pacman’s (pacman(8)), this manual page will focus on the
+       yaourt-specific ones.
+
+       -B, --backup
+           Backup or restore alpm local database. See Backup Options.
+
+       -C
+           Manage .pac* files. See Clean Options.
+
+       -G, --getpkgbuild <package>
+           Get PKGBUILD for ABS or AUR.
+
+       -P, --pkgbuild <directory>
+           Build package from PKGBUILD found in a local directory.
+
+       -Q, --query
+           Query local database + Can sort packages by installation date, possibility to delete orphans. See Query
+           Options.
+
+       -R, --remove
+           Remove package(s) from the system.
+
+       -U, --upgrade
+           Upgrade or add package(s) to the system.
+
+       -S, --sync
+           Synchronize packages + AUR support, building from sources. See Sync Options.
+
+       --stats
+           Show some statistics about your packages.
+
+       -V, --version
+           Display version and exit.
+
+       -h, --help
+           Display a short help.
+
+OPTIONS
+       --color
+           Force color.
+
+       --export <dir>
+           Export built packages and their sources (makepkg(8)) to <dir>.
+
+       --force
+           Force installation or updates.
+
+       --insecure
+           Allow curl & package-query to perform "insecure" SSL connections
+
+       --nocolor
+           Disable color.
+
+       --noconfirm
+           Don’t ask for confirmation.
+
+       --confirm
+           Always ask for confirmation, even when the configuration says otherwise.
+
+       --edit
+           Always edit files, even when the configuration says otherwise.
+
+       --pager
+           Use $PAGER to show search results.
+
+       --tmp <dir>
+           Use <dir> as temporary folder. default to /tmp
+
+BACKUP OPTIONS
+       yaourt -B
+           Backup alpm local database in current dir.
+
+       yaourt -B <dir>
+           Backup alpm local database in <dir>/pacman-date.tar.bz2
+
+       yaourt -B <file>
+           Restore alpm local database from <file>.
+
+CLEAN OPTIONS
+       Manage .pacnew, .pacsave and .pacorig files.
+
+       -c, --clean
+           Clean all these files.
+
+PKGBUILD OPTIONS
+       Build package from PKGBUILD found in a local directory..
+
+       -i, --install
+           Also install the package.
+
+QUERY and SYNC OPTIONS
+       --conflicts
+           Show packages that conflict with one of the targets.
+
+       --depends
+           Show packages that depend on one of the targets.
+
+       --provides
+           Show packages that provide one of the targets.
+
+       --replaces
+           Show packages that replace one of the targets.
+
+       --nameonly
+           Query the package names only (names and descriptions are queried by default).
+
+QUERY OPTIONS
+       --backupfile <file>
+           Query <file> instead of alpm/aur.
+
+       --date
+           List queries result sorted by installation date.
+
+       -d, --deps
+           Filter output to packages installed as dependencies.
+
+       -t, --unrequired
+           Filter output to packages not required by any currently installed package. With -d, yaourt list all real
+           orphans and ask for deletion.
+
+SYNC OPTIONS
+       -a, --aur
+           Also search in AUR database. With -u or --sysupgrade, upgrade aur packages that are out of date. With -Qm,
+           display more info about foreign package.
+
+       -A, --ignorearch
+           Pass -A or --ignorearch option to makepkg(8) to ignore PKGBUILD(5) arch field.
+
+       --aur-url <AUR url>
+           Specify a custom AUR url (default to https://aur.archlinux.org).
+
+       -b, --build
+           Build from sources, ABS for official packages, or AUR if packages is not found. Specify this option twice
+           to build all dependencies.
+
+       --devel
+           With -u or --sysupgrade, search an update for devel packages.
+
+       --holdver
+           Pass --holdver option to makepkg(8) to not update already checked out sources of VCS packages.
+
+       -i, --info
+           Display dependency and other information for a given package. This will search through all repositories and
+           AUR database for a matching package.
+
+       --maintainer
+           Search packages by maintainer instead of name (AUR only). Empty query will search for orphaned packages.
+
+       --m-arg <opts>
+           Pass additional options to makepkg(8). To pass more than one option, put them in quotes.
+
+       -u, --sysupgrade
+           Upgrade all packages that are out of date.
+
+HANDLING CONFIG FILES
+       With AUTOSAVEBACKUPFILE (yaourtrc(5)), yaourt will search and save all files marked as backup. These files can
+       be used later with yaourt -C to automerge current configuration files with new ones.
+
+CONFIGURATION
+       See yaourtrc(5) for more details on configuring yaourt using the yaourtrc file.
+
+ENVIRONMENT VARIABLES
+       MAKEPKG
+           Set an alternative makepkg(8) command.
+
+       PACMAN
+           Set an alternative pacman(8) command.
+
+       TMPDIR
+           Set a temporary folder to use.
+
+       YAOURT_COLORS
+           Set a user defined colors. (see package-query(8))
+
+SEE ALSO
+       yaourtrc(5), makepkg(8), pacman(8)
+
+       See the yaourt website at http://archlinux.fr/yaourt-en/ for more info.
+
+BUGS
+       https://github.com/archlinuxfr/yaourt
+
+AUTHORS
+       Original author:
+
+       - Julien MISCHKOWITZ <wain@archlinux.fr>
+
+       Current maintainers:
+
+       - larchunix <larchunix+yaourt@gmail.com>
+
+       - Igor <f2404@yandex.ru>
+
+       - Skunnyk <skunnyk@archlinux.fr>
+
+       Past maintainers:
+
+       - Tuxce <tuxce.net@gmail.com>
+
+Yaourt 1.9                                            2017-07-19                                             YAOURT(8)

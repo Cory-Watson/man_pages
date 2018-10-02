@@ -1,0 +1,20 @@
+
+  Airventriloquist-ng 1.2  - (C) 2015 Tim de Waal
+  https://www.aircrack-ng.org
+
+  usage: airventriloquist-ng [options]
+
+      -i <replay interface>   : Interface to listen and inject on
+      -d | --deauth           : Send active deauths to encrypted stations
+      -e | --essid <value>    : ESSID of target network 
+      -p | --passphrase <val> : WPA Passphrase of target network
+      -c | --icmp             : Respond to all ICMP frames (Debug)
+      -n | --dns              : IP to resolve all DNS queries to
+      -s | --hijack <URL>     : URL to look for in HTTP requests
+                                <URL> can have wildcards
+                                   eg: *jquery*.js*
+      -r | --redirect <URL>   : URL to redirect to
+      -v | --verbose          : Verbose output
+      --help                  : This super helpful message
+
+
